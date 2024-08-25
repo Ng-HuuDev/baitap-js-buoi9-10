@@ -114,13 +114,13 @@ function xoaNv(id) {
 
 // sua nhan vien
 
-// function suaNv(id) {
-//   var index = DSNV.findIndex(function (item) {
-//     return item.tk == id;
-//   });
-//   var nv = DSNV[index];
-//   // hien thi thong tin len form
+function suaNv(id) {
+  var index = DSNV.findIndex(function (item) {
+    return item.tk == id;
+  });
+  var nv = DSNV[index];
+  // hien thi thong tin len form
 
-//   hienThiThongTin(nv);
-//   // document.getElementById;
-// }
+  hienThiThongTin(nv);
+  // document.getElementById;
+}

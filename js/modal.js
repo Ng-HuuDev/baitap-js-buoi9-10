@@ -65,12 +65,12 @@ function NhanVien(
   this.gioLam = _gioLam;
   this.tongLuong = function () {
     switch (this.chucVu) {
-      case "Sếp":
-        return this.luongCb * 3 * gioLam;
-      case "trưởng phòng":
-        return this.luongCb * 2 * gioLam;
-      case "nhân viên":
-        return this.luongCb * gioLam; // Tổng lương bằng lương cơ bản nếu là nhân viên
+      case "sep":
+        return this.luongCb * 3;
+      case "truongphong":
+        return this.luongCb * 2;
+      case "nhanvien":
+        return this.luongCb; // Tổng lương bằng lương cơ bản nếu là nhân viên
       default:
         return 0; // Nếu chức vụ không xác định, trả về 0
     }
