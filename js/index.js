@@ -114,13 +114,29 @@ function xoaNv(id) {
 
 // sua nhan vien
 
-function suaNv(id) {
-  var index = DSNV.findIndex(function (item) {
-    return item.tk == id;
-  });
-  var nv = DSNV[index];
-  // hien thi thong tin len form
+// function suaNv(id) {
+//   // console.log("🚀 ~ suaNv ~ id:", id);
+//   var index = DSNV.findIndex(function (item) {
+//     return item.tk == id;
+//   });
+//   var nv = DSNV[index];
+//   // hien thi thong tin len form
+//   hienThiThongTin(nv);
+//   // document.getElementById;
+// }
+// document.getElementById("myModal").addEventListener("click", suaNv);
 
-  hienThiThongTin(nv);
-  // document.getElementById;
+function suaNv() {
+  // var btn_open = document.getElementById("btnSua");
+  // var btn_close = document.getElementById("btnSua");
+  // var popup = document.getElementById("myModal");
+  // btn_open.addEventListener("click", () => {
+  //   popup.style.display = "flex";
+  // });
+  // btn_close.addEventListener("click", () => {
+  //   popup.style.display = "none";
+  // });
 }
+document.getElementById("btnSua").addEventListener("click", function () {
+  $("#myModal").modal("show");
+});
