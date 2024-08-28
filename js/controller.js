@@ -18,9 +18,7 @@ function renderDSNV(dsnv) {
     <button onclick=xoaNv("${nv.tk}") class="btn btn-success">
     Xóa
     </button>
-    <button onclick=suaNv("test")("${
-      nv.tk
-    }") id="btnSua" class="btn btn-success">
+    <button onclick=suaNv("${nv.tk}") id="btnSua" class="btn btn-success">
     Sửa
     </button>
     </td>

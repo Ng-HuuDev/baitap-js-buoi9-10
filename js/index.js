@@ -1,4 +1,6 @@
 //
+var dataJson = localStorage.getItem("DSNV_JSON");
+var nvArr = JSON.parse(dataJson);
 
 DSNV = [];
 if (dataJson !== null) {
@@ -21,9 +23,6 @@ if (dataJson !== null) {
 
   renderDSNV(DSNV);
 }
-
-var dataJson = localStorage.getItem("DSNV_JSON");
-var nvArr = JSON.parse(dataJson);
 
 renderDSNV(nvArr);
 function themNv() {
@@ -113,30 +112,68 @@ function xoaNv(id) {
 }
 
 // sua nhan vien
+function suaNv(id) {
+  console.log(id);
+  var index = DSNV.findIndex(function (item) {
+    return item.tk == id;
+  });
+  console.log("🚀 ~ index ~ index:", index);
 
-// function suaNv(id) {
-//   // console.log("🚀 ~ suaNv ~ id:", id);
-//   var index = DSNV.findIndex(function (item) {
-//     return item.tk == id;
-//   });
-//   var nv = DSNV[index];
-//   // hien thi thong tin len form
-//   hienThiThongTin(nv);
-//   // document.getElementById;
-// }
-// document.getElementById("myModal").addEventListener("click", suaNv);
+  const nhanVien = DSNV[index];
 
-function suaNv() {
-  // var btn_open = document.getElementById("btnSua");
-  // var btn_close = document.getElementById("btnSua");
-  // var popup = document.getElementById("myModal");
-  // btn_open.addEventListener("click", () => {
-  //   popup.style.display = "flex";
-  // });
-  // btn_close.addEventListener("click", () => {
-  //   popup.style.display = "none";
-  // });
-}
-document.getElementById("btnSua").addEventListener("click", function () {
+  $("#myModal #tknv").val(nhanVien["tk"]);
+  $("#myModal #tknv").attr("readonly", true);
+  $("#myModal #name").val(nhanVien["name"]);
+  $("#myModal #email").val(nhanVien["email"]);
+  $("#myModal #datepicker").val(nhanVien["ngayLam"]);
+  $("#myModal #luongCB").val(nhanVien["luongCb"]);
+  $("#myModal #chucvu").val(nhanVien["chucVu"]);
+  $("#myModal #gioLam").val(nhanVien["gioLam"]);
+
   $("#myModal").modal("show");
-});
+}
+
+function updateNv(e) {
+  const tk = document.getElementById("tknv").value;
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const matKhau = document.getElementById("password").value;
+  const ngayLam = document.getElementById("datepicker").value;
+  const luongCb = Number(document.getElementById("luongCB").value);
+  const chucVu = document.getElementById("chucvu").value;
+  const gioLam = Number(document.getElementById("gioLam").value);
+
+  const index = DSNV.findIndex(function (item) {
+    return item.tk == tk;
+  });
+  console.log("🚀 ~ index ~ index:", index);
+  const nv = new NhanVien(
+    tk,
+    name,
+    email,
+    matKhau,
+    ngayLam,
+    luongCb,
+    chucVu,
+    gioLam
+  );
+
+  DSNV[index] = nv;
+
+  // luu vao localStorage
+  var dataJson = JSON.stringify(DSNV);
+  localStorage.setItem("DSNV_JSON", dataJson);
+
+  // console.log("🚀 ~ themNv ~ DSNV:", DSNV);
+  // rederDSNV
+  renderDSNV(DSNV);
+  $("#myModal #tknv").val("");
+  $("#myModal #tknv").attr("readonly", false);
+  $("#myModal #name").val("");
+  $("#myModal #email").val("");
+  $("#myModal #datepicker").val("");
+  $("#myModal #luongCB").val("");
+  $("#myModal #chucvu").val("");
+  $("#myModal #gioLam").val("");
+  $("#myModal").modal("hide");
+}
