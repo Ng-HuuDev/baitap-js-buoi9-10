@@ -119,7 +119,7 @@ function suaNv(id) {
   });
   console.log("🚀 ~ index ~ index:", index);
 
-  const nhanVien = DSNV[index];
+  var nhanVien = DSNV[index];
 
   $("#myModal #tknv").val(nhanVien["tk"]);
   $("#myModal #tknv").attr("readonly", true);
@@ -134,20 +134,20 @@ function suaNv(id) {
 }
 
 function updateNv(e) {
-  const tk = document.getElementById("tknv").value;
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const matKhau = document.getElementById("password").value;
-  const ngayLam = document.getElementById("datepicker").value;
-  const luongCb = Number(document.getElementById("luongCB").value);
-  const chucVu = document.getElementById("chucvu").value;
-  const gioLam = Number(document.getElementById("gioLam").value);
+  var tk = document.getElementById("tknv").value;
+  var name = document.getElementById("name").value;
+  var email = document.getElementById("email").value;
+  var matKhau = document.getElementById("password").value;
+  var ngayLam = document.getElementById("datepicker").value;
+  var luongCb = Number(document.getElementById("luongCB").value);
+  var chucVu = document.getElementById("chucvu").value;
+  var gioLam = Number(document.getElementById("gioLam").value);
 
-  const index = DSNV.findIndex(function (item) {
+  var index = DSNV.findIndex(function (item) {
     return item.tk == tk;
   });
   console.log("🚀 ~ index ~ index:", index);
-  const nv = new NhanVien(
+  var nv = new NhanVien(
     tk,
     name,
     email,
